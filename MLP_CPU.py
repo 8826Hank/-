@@ -327,3 +327,7 @@ nn.fit(X_train=X_train[:55000],
        y_valid=Y_train[55000:])
 
 nn.save_weights('mlp_weights.npz')
+# 測試集評估
+y_test_pred = nn.predict(X_test)
+test_acc = cp.sum(Y_test == y_test_pred) / X_test.shape[0]
+print(f'Test Accuracy: {test_acc * 100:.2f}%')
